@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Feliz Dia dos Namorados ❤️</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      overflow-x: hidden;
+      background: linear-gradient(to bottom, #ffdde1, #fff1f5);
+    }
+
+    .tela-inicial, .galeria {
+      display: none;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .tela-inicial.active, .galeria.active {
+      display: flex;
+    }
+
+    .tela-inicial h1 {
+      font-size: 2rem;
+      color: #c71585;
+      margin-bottom: 40px;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      margin: 10px 0;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      background-color: #ff69b4;
+      color: white;
+      transition: 0.3s;
+      position: relative;
+    }
+
+    .btn:hover {
+      background-color: #ff1493;
+    }
+
+    #nao {
+      position: relative;
+    }
+
+    .galeria {
+      flex-direction: column;
+      padding: 30px 20px;
+      text-align: center;
+    }
+
+    .galeria h1 {
+      color: #c71585;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .foto-principal {
+      max-width: 80%;
+      border-radius: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      margin-bottom: 20px;
+    }
+
+    .contador {
+      font-size: 1.4rem;
+      font-weight: bold;
+      margin-bottom: 30px;
+      color: #c71585;
+    }
+
+    .bloco-foto {
+      display: flex;
+      align-items: center;
+      margin: 30px 0;
+    }
+
+    .foto-menor {
+      width: 200px;
+      border-radius: 15px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    }
+
+    .frase {
+      font-size: 1.1rem;
+      color: #800000;
+      margin: 10px;
+      max-width: 50%;
+    }
+
+    .esquerda {
+      flex-direction: row;
+      justify-content: flex-start;
+    }
+
+    .direita {
+      flex-direction: row-reverse;
+      justify-content: flex-end;
+    }
+
+    .heart {
+      position: fixed;
+      top: -50px;
+      color: red;
+      animation: floatHeart 8s linear infinite;
+      font-size: 20px;
+      opacity: 0.5;
+      z-index: 0;
+    }
+
+    @keyframes floatHeart {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.5;
+      }
+      100% {
+        transform: translateY(100vh) scale(1.2);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Tela Inicial -->
+  <div class="tela-inicial active" id="telaInicial">
+    <h1>Você está preparado para se emocionar? 💘</h1>
+    <button class="btn" id="sim">Sim!</button>
+    <button class="btn" id="nao">Não</button>
+  </div>
+
+  <!-- Galeria -->
+  <div class="galeria" id="galeria">
+    <h1>Feliz Dia dos Namorados! 💖</h1>
+    
+    <!-- Foto principal -->
+    <img class="foto-principal" src="https://i.postimg.cc/bJs9ZWhS/IMG-2261.jpg" alt="Foto Principal" />
+    
+    <!-- Frase e contador -->
+    <p style="font-size: 1.2rem; font-weight: bold; color: #800000; margin-bottom: 10px;">
+      Dia que tive certeza que era você, e sempre seria você
+    </p>
+    <div class="contador" id="contadorAmor">
+      <span id="tempoJuntos"></span>
+    </div>
+
+    <!-- Fotos menores com frases alternadas -->
+    <div class="bloco-foto esquerda">
+      <img class="foto-menor" src="https://i.postimg.cc/hP9bQVHs/IMG-2262.jpg" />
+      <div class="frase">Você é meu para sempre favorito.</div>
+    </div>
+    <div class="bloco-foto direita">
+      <img class="foto-menor" src="https://i.postimg.cc/TY8JPtHh/IMG-2263.jpg" />
+      <div class="frase">A vida é mais bonita com você.</div>
+    </div>
+    <div class="bloco-foto esquerda">
+      <img class="foto-menor" src="https://i.postimg.cc/FzSbZS19/IMG-2264.jpg" />
+      <div class="frase">Meu amor por você só cresce!</div>
+    </div>
+    <div class="bloco-foto direita">
+      <img class="foto-menor" src="https://i.postimg.cc/gcLKdCsf/IMG-2265.jpg" />
+      <div class="frase">Te amo mais do que ontem, menos que amanhã.</div>
+    </div>
+    <div class="bloco-foto esquerda">
+      <img class="foto-menor" src="https://i.postimg.cc/7LQgr92H/IMG-2266.jpg" />
+      <div class="frase">Com você tudo é melhor.</div>
+    </div>
+    <div class="bloco-foto direita">
+      <img class="foto-menor" src="https://i.postimg.cc/g00v7Qrt/IMG-2267.jpg" />
+      <div class="frase">Você é meu lar.</div>
+    </div>
+    <div class="bloco-foto esquerda">
+      <img class="foto-menor" src="https://i.postimg.cc/R0nc9fQw/IMG-1678.jpg" />
+      <div class="frase">Nosso amor é eterno. 💞</div>
+    </div>
+  </div>
+
+  <!-- MÚSICA DE FUNDO -->
+  <audio autoplay loop>
+    <source src="https://www.dropbox.com/scl/fi/your-link/perfect.mp3?rlkey=abc123&raw=1" type="audio/mpeg">
+    Seu navegador não suporta áudio HTML.
+  </audio>
+
+  <script>
+    // Botão Sim
+    document.getElementById("sim").onclick = () => {
+      document.getElementById("telaInicial").classList.remove("active");
+      document.getElementById("galeria").classList.add("active");
+    };
+
+    // Botão Não foge
+    const btnNao = document.getElementById("nao");
+    btnNao.addEventListener("mouseover", () => {
+      const x = Math.random() * (window.innerWidth - 100);
+      const y = Math.random() * (window.innerHeight - 50);
+      btnNao.style.position = "absolute";
+      btnNao.style.left = `${x}px`;
+      btnNao.style.top = `${y}px`;
+    });
+
+    // Contador desde 28/07/2019
+    function atualizarTempoJuntos() {
+      const inicio = new Date("2019-07-28T00:00:00");
+      const agora = new Date();
+
+      let anos = agora.getFullYear() - inicio.getFullYear();
+      let meses = agora.getMonth() - inicio.getMonth();
+      let dias = agora.getDate() - inicio.getDate();
+      let horas = agora.getHours() - inicio.getHours();
+      let minutos = agora.getMinutes() - inicio.getMinutes();
+      let segundos = agora.getSeconds() - inicio.getSeconds();
+
+      if (segundos < 0) { segundos += 60; minutos--; }
+      if (minutos < 0) { minutos += 60; horas--; }
+      if (horas < 0) { horas += 24; dias--; }
+      if (dias < 0) {
+        const ultimoMes = new Date(agora.getFullYear(), agora.getMonth(), 0);
+        dias += ultimoMes.getDate(); meses--;
+      }
+      if (meses < 0) { meses += 12; anos--; }
+
+      document.getElementById("tempoJuntos").textContent =
+        `${anos} anos, ${meses} meses, ${dias} dias, ${horas} horas, ${minutos} minutos e ${segundos} segundos 💑`;
+    }
+
+    setInterval(atualizarTempoJuntos, 1000);
+    atualizarTempoJuntos();
+
+    // Corações flutuando
+    function criarCoracao() {
+      const coracao = document.createElement("div");
+      coracao.classList.add("heart");
+      coracao.style.left = Math.random() * 100 + "vw";
+      coracao.innerHTML = "❤️";
+      document.body.appendChild(coracao);
+      setTimeout(() => coracao.remove(), 8000);
+    }
+
+    setInterval(criarCoracao, 1500); // frequência dos corações
+  </script>
+</body>
+</html>
